@@ -1,4 +1,8 @@
+import dotenv from 'dotenv'
 import express from 'express'
+
+dotenv.config();
+
 import DB from './app/DB.js'
 
 DB.connect();
@@ -13,4 +17,4 @@ app.use('/', Router.route);
 
 app.use((err, req, res, next) => res.status(500).send({ message: `${err}` }));
 
-app.listen(8080);
+app.listen(process.env.PORT);
