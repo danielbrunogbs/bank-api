@@ -1,8 +1,11 @@
 import express from 'express'
 
 import AccountController from '../app/Controllers/AccountController.js'
+import HelloController from '../app/Controllers/HelloController.js'
 
 const route = express.Router();
+
+route.get('/', HelloController.index);
 
 route.get('/accounts', AccountController.index);
 
